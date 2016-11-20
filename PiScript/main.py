@@ -2,6 +2,7 @@
 # Modified by BeñoCampos - http://beno.cl
 
 import time
+import requests
 import os
 import RPi.GPIO as GPIO
 
@@ -56,11 +57,17 @@ GPIO.setup(SPICS, GPIO.OUT)
 
 # 10k trim pot connected to adc #0
 sensor_adc = 0;
-
+prev_val = 0;
 while True:
 	# read the analog pin
 	read_pin = readadc(sensor_adc, SPICLK, SPIMOSI, SPIMISO, SPICS)
 	
+	# if reading varies send to server
+	if (prev_val<read_pin+2 or prev_val>read_pin-2) :
+		prev_val = read_pin
+		r = requests.post('http://www.livefree.esy.es/aqi_recieve.php', data = {'value':read_pin})
+		print (r.text)
+
 	if DEBUG:
 		print "ADC:", read_pin 
 	time.sleep(1)
