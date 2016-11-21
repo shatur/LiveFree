@@ -1,0 +1,109 @@
+<!-- 	This code is for LiveFree. 
+-->
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>LiveFree</title>
+		<script type="text/javascript" src="script.js"></script>
+		<link rel="shortcut icon" href="dove.png" />
+		<link rel="stylesheet" href="style.css">
+		<meta name = "viewport" content="width=device-width, initial-scale=1">
+	</head>
+
+	<body onload="load()" onresize="load()">
+
+	<div class="logo">
+		<img id="bg" src="Images/bg2.jpg">
+		 <!--<video id="bg" autoplay muted loop>
+  			<source src="sample.mp4" type="video/mp4">
+			Your browser does not support the video tag.
+		</video>--> 
+	</div>
+
+
+	<!-- Side Bar Options -->
+	<div id="SideBar" class="nav-drawer">
+			<a href="javascript:void(0)" onclick="closeNav()" class="closebtn">&times;</a>
+			<a href="#" onclick="closeNav()">Home</a>
+			<a href="#about" onclick="closeNav()">About</a>
+			<a href="#blogs" onclick="closeNav()">Credits</a>
+			<a href="#blogs" onclick="closeNav()">Contact Us</a>
+	</div>
+
+	<!-- Top most page -->
+	<div id="#" class="main-col overlay-home">
+		<div class="left-col">
+		<!-- Logo at top-left, redirects to top -->
+		<span>
+			<a href="#">
+				<img src="Images/dove.png" class="icon">
+			</a>
+		</span>
+		</div>
+
+		<div class="mid-col">
+			<div class="heading">
+				<img src="Images/dove.png" width="150" height="150" align="middle"><br>
+				Live Free
+			</div>
+			<div class="sub-heading">
+				Detects Smoke &amp; Harmful Gases
+			</div>
+		</div>
+
+		<div class="right-col">
+			<!-- Menu bottun at top right corner -->
+			<div class="menu-button" onclick="openNav()">&#9776; MENU</div>
+		</div>
+	</div>
+
+	<!-- About Project Section -->
+	<div id="about" class="main-col">
+		<div class="container-large">
+			<img src="Images/rasp.jpg" class="img-prop">
+		</div>
+
+		<div class="container-small">
+			<div class="content-box">
+				<div class="content-heading">
+					About Project
+				</div>
+				<div class="content-data">
+					The motive of this project is to help an individual to monitor air quality around them. So, we have designed an IOT which can detect harmful gasses around its surroundings. For our IOT, we have used Raspberry Pi.
+				</div>
+				<button class="button-style">Read More</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- Subscribe and links -->
+	<div id="contact-us" class="contact-main">
+		<div class="project-data">
+			<div class="project-links">
+				<a class="a-style" href="">About</a><br><a class="a-style" href="">Blog</a><br><a class="a-style" href="">Credits</a><br><a class="a-style" href="">Tech Details</a>
+			</div>
+		</div>
+		<div class="project-data">
+			<div class="extra-links">
+				<a class="a-style" href="">FAQ</a><br><a class="a-style" href="">Term of use</a><br><a class="a-style" href="">Contact Us</a><br><a class="a-style" href="">Privacy Policy</a>
+			</div>
+		</div>
+		<div class="subscribe-box">
+			<div class="subs-form">
+			<form action="">
+				<input class="subs-textbox" type="email" name="email-id" value="&nbsp;&nbsp;Enter your email-id"><br><br>
+  				<input class="subs-button" type="submit" value="Subscribe to newsletter">
+			</form>
+			</div> 
+		</div>
+	</div>
+
+	<!-- Footer and licensing related data -->
+	<div class="footer">
+		<img src="Images/dove.png" width="20" height="20" style="vertical-align: middle;"><span style="vertical-align:middle;">Live Free</span>
+		<div>Made In India, with <span style="color: red;">&#9829;</span>. Licensed Under Creative Commons</div>
+	</div>
+
+	</body>
+</html>
