@@ -108,6 +108,8 @@ a{
     display: flex;
     width: 100%;
     height: 100vh;
+    overflow-y: hidden;
+	overflow-x: hidden;
 }
 
 /* Layout: size 30-40-30 */
@@ -149,13 +151,18 @@ a{
 .container-large {
 	width: 55%;
 	height: 100vh;
-	overflow-y: hidden;
+	animation-name: motion-left;
+	animation-duration: 5s;
+	position: relative;
 }
 
 .container-small {
 	width: 45%;
 	height: 100vh;
 	overflow: hidden;
+	animation-name: motion-right;
+	animation-duration: 5s;
+	position: relative;
 }
 
 /* Image resize proportionally */
@@ -163,6 +170,16 @@ a{
 	margin-top: 20%;
 	width: 80%;
 	height: auto;
+	overflow-x: hidden;
+}
+
+.img-phone {
+	margin-top: 20%;
+	width: 80%;
+	height: auto;
+	animation-name: motion-right;
+	animation-duration: 5s;
+	position: relative;
 }
 
 /* Content related style */
@@ -274,6 +291,7 @@ a{
 	color: black;
 	border: 2px solid #001;
 	border-radius: 25px;
+	height: 2em;
 	width: 70%;
 	background-color: #FFF;
 }
@@ -285,7 +303,7 @@ a{
 	font-family: "Roboto";
 	font-weight: 300;
 	width: 100%;
-	height: 4vh;
+	height: 6vh;
 	text-align: center;
 }
 
@@ -322,4 +340,15 @@ a{
 		line-height: 150%;
 	}
 
+}
+
+/* Animations */
+@keyframes motion-left {
+    0%   {left:100%; top:0px;}
+    100% {left:0px; top:0px;}
+}
+
+@keyframes motion-right {
+    0%   {right:100%; top:0px;}
+    100% {right:0px; top:0px;}
 }
