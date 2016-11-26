@@ -22,6 +22,6 @@ function closeNav() {
 function load(){
 	var screenHeight = window.innerHeight;
 	var screenWidth = window.innerWidth;
-	document.getElementById('bg').width=screenWidth-13;
+	document.getElementById('bg').width=screenWidth;
 	document.getElementById('bg').height=screenHeight;
 }
