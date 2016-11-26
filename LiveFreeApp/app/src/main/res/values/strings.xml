@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">LiveFree</string>
+    <string name="login">Login</string>
+    <string name="user_id">User Name</string>
+    <string name="user_pass">Password</string>
+
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_user_page">userPage</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="feedback_text">Please take a moment to tell us what you think about our products,
+        our services, or anything else that comes to mind. We welcome all of your comments and
+        suggestions that will help us serve you better.</string>
+
+    <string name="action_settings">Settings</string>
+</resources>

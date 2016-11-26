@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#009688</color>
+    <color name="colorPrimaryDark">#00897B</color>
+    <color name="colorAccent">#00BFA5</color>
+    <color name="appBgcolor">#E0F2F1</color>
+
+    <color name="rimColor">#B2DFDB</color>
+    <color name="barColor1">#80CBC4</color>
+    <color name="barColor2">#4DB6AC</color>
+    <color name="barColor3">#26a69A</color>
+
+    <color name="contourColor">#000</color>
+
+    <color name="Grey">#979494</color>
+    <color name="black_overlay">#66000000</color>
+</resources>
