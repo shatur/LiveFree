@@ -5,6 +5,8 @@
     <color name="colorAccent">#00BFA5</color>
     <color name="appBgcolor">#E0F2F1</color>
 
+    <color name="btnPrim">#80CBC4</color>
+
     <color name="rimColor">#B2DFDB</color>
     <color name="barColor1">#80CBC4</color>
     <color name="barColor2">#4DB6AC</color>

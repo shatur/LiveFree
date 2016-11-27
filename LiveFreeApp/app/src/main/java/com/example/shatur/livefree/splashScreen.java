@@ -35,8 +35,8 @@ public class splashScreen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable(){
             @Override
             public void run() {
-                /* Create an Intent that will start the Menu-Activity. */
-
+                /* Create an Intent that will start the Menu-Activity.
+                 * Checks whether the user has logged in in past */
                 if(cursor.moveToFirst()){
                     Log.d(LOGTAG, "User previously logged in");
                     Intent mainIntent = new Intent(getApplicationContext(),userPage.class);

@@ -67,6 +67,8 @@ public class feedback extends AppCompatActivity {
             }
         };
         queue.add(postRequest);
+        Toast.makeText(getBaseContext(),"Thanks for your feedback!",Toast.LENGTH_SHORT).show();
+        com.example.shatur.livefree.feedback.this.finish();
 
     }
 }
