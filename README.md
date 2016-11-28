@@ -4,7 +4,7 @@
 
 **Snapshot from the App**
 
-![My image](/Screenshots/home.png)
+![My image](/Snapshots/main.png)
 
 ## Project Components
 
@@ -14,4 +14,4 @@
 
 ## License
 
-Live Free is licensed under GNU General Public License v3.0, so feel free to innovate  :simple_smile:
+Live Free is licensed under GNU General Public License v3.0, so feel free to innovate simple_smile:
