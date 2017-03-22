@@ -12,6 +12,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -51,6 +52,7 @@ public class userPage extends AppCompatActivity
         // Receives user name, to show in side menu
         Intent intent = getIntent();
         user_name = intent.getStringExtra("user_name");
+        Log.e(LOGTAG, "User name :"+user_name);
 
         // Imports external fonts
         importFont font = new importFont(getBaseContext());
@@ -69,32 +71,12 @@ public class userPage extends AppCompatActivity
         impl_data= (TextView) findViewById(R.id.imp_data);
         advi_data = (TextView) findViewById(R.id.advices_data);
 
-        final RequestQueue queue = Volley.newRequestQueue(this);
+        getData();
 
         aqi_circle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                    JsonObjectRequest jsObjRequest = new JsonObjectRequest
-                            (Request.Method.GET, "http://livefree.esy.es/aqi_send.php", null, new Response.Listener<JSONObject>() {
-
-                                @Override
-                                public void onResponse(JSONObject response) {
-                                    try {
-                                        setAQI(Integer.parseInt(response.getString("value")));
-                                    } catch (JSONException e) {
-                                        e.printStackTrace();
-                                    }
-                                }
-                            }, new Response.ErrorListener() {
-
-                                @Override
-                                public void onErrorResponse(VolleyError error) {
-                                    // TODO Auto-generated method stub
-
-                                }
-                            });
-                    queue.add(jsObjRequest);
-
+                getData();
             }
         });
     }
@@ -138,6 +120,9 @@ public class userPage extends AppCompatActivity
 
         if (id == R.id.nav_home) {
             // Handle the camera action
+        } else if (id == R.id.history) {
+            Intent intent = new Intent(getApplicationContext(),history.class);
+            startActivity(intent);
         } else if (id == R.id.nav_feedback) {
             Intent intent = new Intent(getApplicationContext(),feedback.class);
             startActivity(intent);
@@ -149,7 +134,32 @@ public class userPage extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-    
+
+    private void getData(){
+        final RequestQueue queue = Volley.newRequestQueue(this);
+
+        JsonObjectRequest jsObjRequest = new JsonObjectRequest
+                (Request.Method.GET, "http://livefree.esy.es/aqi_send.php", null, new Response.Listener<JSONObject>() {
+
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            setAQI(Integer.parseInt(response.getString("value")));
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // TODO Auto-generated method stub
+
+                    }
+                });
+        queue.add(jsObjRequest);
+
+    }
     private void setAQI(int aqi_val){
         if (aqi_val<51) {
             quality.setText("Excellent Air Quality");
