@@ -18,7 +18,6 @@ import com.example.shatur.livefree.userDatabase.createDB;
 public class splashScreen extends AppCompatActivity {
 
     private static String LOGTAG = splashScreen.class.getSimpleName().toUpperCase();
-    private final int SPLASH_DISPLAY_LENGTH = 1000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,23 +31,19 @@ public class splashScreen extends AppCompatActivity {
         SQLiteDatabase db = checkDB.getReadableDatabase();
         final Cursor cursor = checkDB.readEntries(db);
 
-        new Handler().postDelayed(new Runnable(){
-            @Override
-            public void run() {
-                /* Create an Intent that will start the Menu-Activity.
-                 * Checks whether the user has logged in in past */
-                if(cursor.moveToFirst()){
-                    Log.d(LOGTAG, "User previously logged in");
-                    Intent mainIntent = new Intent(getApplicationContext(),userPage.class);
-                    mainIntent.putExtra("user_name","Tushar");
-                    startActivity(mainIntent);
-                } else {
-                    Log.d(LOGTAG, "No user found");
-                    Intent mainIntent = new Intent(getApplicationContext(), checker.class);
-                    startActivity(mainIntent);
-                }
-                splashScreen.this.finish();
-            }
-        }, SPLASH_DISPLAY_LENGTH);
+        /* Create an Intent that will start the Menu-Activity.
+         * Checks whether the user has logged in in past
+         */
+        if(cursor.moveToFirst()){
+            Log.d(LOGTAG, "User previously logged in");
+            Intent mainIntent = new Intent(getApplicationContext(),userPage.class);
+            mainIntent.putExtra("user_name",cursor.getString(cursor.getColumnIndex("USER_NAME")));
+            startActivity(mainIntent);
+        } else {
+            Log.d(LOGTAG, "No user found");
+            Intent mainIntent = new Intent(getApplicationContext(), checker.class);
+            startActivity(mainIntent);
+        }
+        splashScreen.this.finish();
     }
 }
